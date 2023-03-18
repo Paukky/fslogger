@@ -36,7 +36,7 @@ export const addLog = log => async dispatch => {
   try {
     setLoading();
     const res = await axios.post('http://localhost:5000/api/logs', log)
-    console.log(res.json);
+
     dispatch({
       type: ADD_LOG,
       payload: res.data
@@ -73,7 +73,7 @@ export const updateLog = log => async dispatch => {
   try {
     setLoading();
     const res = await axios.put(`http://localhost:5000/api/logs/${log.id}`, log)
-    
+    console.log(res.data);
     dispatch({
       type: UPDATE_LOG,
       payload: res.data
