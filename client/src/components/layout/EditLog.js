@@ -56,7 +56,7 @@ const EditLog = ({log,updateLog}) => {
       <IconButton aria-label='Edit Log' icon={<EditIcon/>} colorScheme={'gray'} onClick={onOpen} mr={2}/>
       <Drawer
         isOpen={isOpen}
-        placement='bottom'
+        placement='top'
         initialFocusRef={firstField}
         onClose={onClose}
       >
@@ -125,11 +125,8 @@ EditLog.propTypes = {
     updateLog: PropTypes.func.isRequired
 };
 
-const mapStateToProps = state => ({
-    current: state.log.current
-  });
   
   export default connect(
-    mapStateToProps,
+    null,
     { updateLog}
   )(EditLog);

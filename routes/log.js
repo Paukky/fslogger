@@ -51,18 +51,18 @@ router.get('/', async (req, res) => {
 
     //Build Log Object
     const logFields = {};
+
     if (message) logFields.message = message;
     if (attention) logFields.attention = attention;
     if (tech) logFields.tech = tech;
     if (date) logFields.date = date;
 
      try { 
-      let log = await Log.findById(req.params.id);
-
-      log = await Log.findByIdAndUpdate(
+      let log = await Log.findByIdAndUpdate(
         req.params.id,
         { $set: logFields }
       )
+      
       res.json(log);
 
     } catch (err) {
@@ -71,8 +71,8 @@ router.get('/', async (req, res) => {
     }
   })
 
-  // @route     DELETE api/tech
-// @desc      Delete a tech
+// @route     DELETE api/log
+// @desc      Delete a Log
 // @access    Public
 router.delete('/:id', async(req, res) => {
   try {
