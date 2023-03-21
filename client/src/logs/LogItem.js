@@ -5,11 +5,11 @@ import 'moment-timezone';
 import { Tr,Td,IconButton,Text} from '@chakra-ui/react'
 import { connect } from 'react-redux';
 import { DeleteIcon} from '@chakra-ui/icons';
-import { deleteLog } from '../actions/logAction';
+import { deleteLog, getLogs } from '../actions/logAction';
 import EditLog from '../components/layout/EditLog';
  
 const LogItem = ({log, deleteLog}) => {
- 
+
   const onDelete = () => {
     deleteLog(log._id);
   }

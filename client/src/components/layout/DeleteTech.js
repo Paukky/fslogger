@@ -13,13 +13,8 @@ import {
 
 } from '@chakra-ui/react'
 
-const DeleteTech = ({getTechs, tech:{techs,loading}}) => {
+const DeleteTech = ({tech:{techs,loading}}) => {
   const { isOpen, onOpen, onClose } = useDisclosure()
-
-  useEffect(() => {
-    getTechs();
-    // eslint-disable-next-line
-  }, []);
 
   return (
     <React.Fragment>

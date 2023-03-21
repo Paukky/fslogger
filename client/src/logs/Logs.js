@@ -13,12 +13,11 @@ import {
 import LogItem from './LogItem';
 import PropTypes from 'prop-types'
 import { getLogs } from '../actions/logAction';
-const Logs = ({ log: { logs, loading },getLogs}) => {
-
+const Logs = ({ log: { logs, loading }, getLogs}) => {
+    
     useEffect(() => {
         getLogs();
-        // eslint-disable-next-line
-    }, [])
+    })
 
     if(loading || logs === null) {
         return <Spinner size="xl"/>

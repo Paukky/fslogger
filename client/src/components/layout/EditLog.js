@@ -28,11 +28,10 @@ const EditLog = ({log,updateLog}) => {
         setMessage(log.message);
         setAttention(log.attention);
         setTech(log.tech);
-  },[log]);
+  },[log.message,log.attention,log.tech]);
 
   const onSubmit = () => {
-    if (message === '' || tech === '') {
-    } else {
+    if (message === '' || tech === '') return 
       const updLog = {
         id: log._id,
         message,
@@ -42,13 +41,12 @@ const EditLog = ({log,updateLog}) => {
       };
       
     updateLog(updLog);
-
     //Clear Fields
     setMessage('');
     setTech('');
-    setAttention('false');
+    setAttention(false);
     onClose();
-    }
+    
   }
 
   return (

@@ -15,10 +15,8 @@ import axios from 'axios';
 // Get logs from server
 export const getLogs = () => async dispatch => {
   try {
-    setLoading();
-    
-    const res = await axios.get('http://localhost:5000/api/logs')
-
+    setLoading();  
+    const res = await axios.get(`http://localhost:5000/api/logs`)
     dispatch({
       type: GET_LOGS,
       payload: res.data
@@ -73,7 +71,7 @@ export const updateLog = log => async dispatch => {
   try {
     setLoading();
     const res = await axios.put(`http://localhost:5000/api/logs/${log.id}`, log)
-    console.log(res.data);
+
     dispatch({
       type: UPDATE_LOG,
       payload: res.data

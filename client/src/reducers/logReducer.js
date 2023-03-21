@@ -41,8 +41,14 @@ import {
         return {
           ...state,
           logs: state.logs.map(log =>
-            log.id === action.payload.id ? action.payload : log
-          )
+            {if (log.id === action.payload.id) {
+              log.message = action.payload.message;
+              log.tech = action.payload.tech;
+              log.attention = action.payload.attention;
+              log.date = action.payload.date;          
+            }
+            return log;
+          },)      
         };
       case SEARCH_LOGS:
         return {
